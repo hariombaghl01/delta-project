@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 const listingSchem = new Schema({
     title: {
-        type: String,
+        type: String, 
         //required: true,
     },
     description: String,
@@ -16,7 +16,7 @@ const listingSchem = new Schema({
     },
     url: {
         type: String,
-        default: "https://images.unsplash.com/photo-..."
+        default: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800"
     },
 },
     price: Number,
