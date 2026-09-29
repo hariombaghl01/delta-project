@@ -53,7 +53,7 @@ app.use(express.static(path.join(__dirname , "/public")));
 
 const store = MongoStore.create({
     mongoUrl: dbUrl,
-    crypt: {
+    crypto: {
         secret: process.env.SECRET
     },
     touchAfter: 24 * 3600,
@@ -102,6 +102,9 @@ app.use((req, res, next) => {
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
+app.get("/", (req, res) => {
+    res.send("Delta Project is running 🚀");
+});
 
 
 
