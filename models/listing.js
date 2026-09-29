@@ -11,15 +11,9 @@ const listingSchem = new Schema({
     description: String,
     
     image: {
-    filename: {
-        type: String,
-        default: "listingimage",
+        url: String,
+        filename: String
     },
-    url: {
-        type: String,
-        default: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800"
-    },
-},
     price: Number,
     location: String,
     country: String,
@@ -28,7 +22,11 @@ const listingSchem = new Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: "Review"
         }
-    ]
+    ],
+    owner: {
+        type : Schema.Types.ObjectId,
+        ref : "User"
+    }
 });
 
 listingSchem.post("findOneAndDelete", async (listing) => {
